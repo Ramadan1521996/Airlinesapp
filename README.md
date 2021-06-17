@@ -12,9 +12,11 @@ then it shows BottomSheet to enter the airline data
 - Unit tests
    
 ## Other useful features
+-Support availability to data in offline mode using room
+-Using MVVM architecture with Repository design pattern
+-Using Retrofit with RX java
 
 # Getting started
-
 ### Script 
 1. Download this repository extract and open the folder
 2. Run `newproject.sh` script to create a copy with the name you want 
