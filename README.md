@@ -1,4 +1,12 @@
 # Airlinesapp
+-it simple app that starts with a splash screen to then open to the main view displaying
+airlines list. Provide the option to filter this list by airline name, airline id or country
+using a search view.
+when you select an airline entry will redirect to airline details page.
+that show airline details such as name, country, slogan, logo and
+clickable website link
+and you can add a new airline to the existing list by clicking on FloatingActionButton 
+then it shows BottomSheet to enter the airline data
  
 ## Tests
 - Unit tests
@@ -29,5 +37,6 @@ And you're ready to start working on your new app.
 And you're ready to start working on your new app.
 
 # Notes
-- Android Template contains `.github/workflows` for lint check and unit testing. You can easily take this project worflow and repurpose it with a few path changes, you can also find a commented example in test.yml for Instrumentation Testing and CodeCoverage that we advice to keep a clean project, you will however need to replace the secret keys with your own.
+-I am using  Rest APIs from InstantWebtools website.
+[![test](https://www.instantwebtools.net/fake-rest-api#read-airlines)
 
