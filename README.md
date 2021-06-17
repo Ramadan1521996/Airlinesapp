@@ -1,5 +1,5 @@
 # Airlinesapp
--it simple app that starts with a splash screen to then open to the main view displaying
+- it simple app that starts with a splash screen to then open to the main view displaying
 airlines list. Provide the option to filter this list by airline name, airline id or country
 using a search view.
 when you select an airline entry will redirect to airline details page.
@@ -39,6 +39,6 @@ And you're ready to start working on your new app.
 And you're ready to start working on your new app.
 
 # Notes
--I am using  Rest APIs from InstantWebtools website.
+- I am using  Rest APIs from InstantWebtools website.
 [nstantWebtools website link](https://www.instantwebtools.net/fake-rest-api#read-airlines)
 
