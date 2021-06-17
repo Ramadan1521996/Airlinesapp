@@ -38,5 +38,5 @@ And you're ready to start working on your new app.
 
 # Notes
 -I am using  Rest APIs from InstantWebtools website.
-[![test](https://www.instantwebtools.net/fake-rest-api#read-airlines)
+[nstantWebtools website link](https://www.instantwebtools.net/fake-rest-api#read-airlines)
 
