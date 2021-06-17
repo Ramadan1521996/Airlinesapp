@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Airlines app</string>
+    <string name="airline_details">Airline Details</string>
+    <string name="airlines">Airlines</string>
+</resources>
