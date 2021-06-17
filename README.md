@@ -10,6 +10,8 @@ then it shows BottomSheet to enter the airline data
 
  <img src="https://firebasestorage.googleapis.com/v0/b/yumm-f3ed2.appspot.com/o/WhatsApp%20Image%202021-06-17%20at%207.04.41%20PM%20(3).jpeg?alt=media&token=21a1ace2-30ce-4926-ac27-af2e087d7cc1" alt="Home Screen"/>
  
+ <img src="https://firebasestorage.googleapis.com/v0/b/yumm-f3ed2.appspot.com/o/WhatsApp%20Image%202021-06-17%20at%207.04.41%20PM%20(2).jpeg?alt=media&token=8cc420df-2f1f-49c2-8c99-c2e4f06c02f7" alt="Button sheet"/>
+ 
 ## Tests
 - Unit tests
    
