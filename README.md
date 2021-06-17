@@ -12,9 +12,9 @@ then it shows BottomSheet to enter the airline data
 - Unit tests
    
 ## Other useful features
--Support availability to data in offline mode using room
--Using MVVM architecture with Repository design pattern
--Using Retrofit with RX java
+-Support availability to data in offline mode using room.
+-Using MVVM architecture with Repository design pattern.
+-Using Retrofit with RX java.
 
 # Getting started
 ### Script 
