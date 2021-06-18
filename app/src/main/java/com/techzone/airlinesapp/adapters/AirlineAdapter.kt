@@ -3,6 +3,7 @@ package com.techzone.airlinesapp.adapters
 import android.content.Context
 import android.content.Intent
 import android.text.Html
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,7 +46,7 @@ class AirlineAdapter(private var airlines: MutableList<Airline>?,
                 // Do what you don't want to run twice due to double tap
                 val intent = Intent(context, AirlineDetailsActivity::class.java)
                 val airline: Airline = airlines!![viewHolder.adapterPosition]
-                if (airline.getId() != null) {
+                if ( airline.getId().equals("")) {
                     intent.putExtra("order_id", airline.getId())
                 } else {
                     intent.putExtra("order", airline)

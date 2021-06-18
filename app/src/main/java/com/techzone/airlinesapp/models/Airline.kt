@@ -6,31 +6,13 @@ import androidx.room.PrimaryKey
 import java.io.Serializable
 
 @Entity(tableName = "airline_table")
-class Airline :Serializable {
+class Airline( private var name: String?,   private var country: String?,  private var logo: String?
+,  private var slogan: String? , private var head_quaters: String? ,private var website: String? = null ,
+               private var established: String?) :Serializable {
+
     @PrimaryKey
     @NonNull
     private var id: String =""
-    private var name: String? = null
-    private var country: String? = null
-    private var logo: String? = null
-    private var slogan: String? = null
-    private var head_quaters: String? = null
-    private var website: String? = null
-    private var established: String? = null
-
-    fun Airline() {}
-
-    fun Airline(name: String?, country: String?, logo: String?, slogan: String?,
-                head_quaters: String?, website: String?, established: String?) {
-        this.name = name
-        this.country = country
-        this.logo = logo
-        this.slogan = slogan
-        this.head_quaters = head_quaters
-        this.website = website
-        this.established = established
-    }
-
     fun getId(): String {
         return id
     }

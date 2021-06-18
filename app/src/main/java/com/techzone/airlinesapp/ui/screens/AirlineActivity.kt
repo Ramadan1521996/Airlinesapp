@@ -10,12 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.techzone.airlinesapp.adapters.AirlineAdapter
 import com.techzone.airlinesapp.databinding.ActivityAirlineBinding
+import com.techzone.airlinesapp.iterfaces.AddAirlineInterface
 import com.techzone.airlinesapp.models.Airline
 import com.techzone.airlinesapp.ui.views.AddAirLineButtonSheet
 import com.techzone.airlinesapp.viewModels.AirlineViewModel
 import java.util.*
 
-class AirlineActivity : AppCompatActivity() {
+class AirlineActivity : AppCompatActivity() ,AddAirlineInterface{
     private lateinit var binding: ActivityAirlineBinding
     private lateinit var mContext: Context
     private  var airLineButtonSheet: AddAirLineButtonSheet?= null
@@ -34,14 +35,16 @@ class AirlineActivity : AppCompatActivity() {
         ////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////
         airlineViewModel = ViewModelProvider(this)[AirlineViewModel::class.java]
-        airlineViewModel.getAirlinesList()!!.observe(this, { airlines -> // when data reached update ui
+        airlineViewModel.getAirlinesList()!!.observe(
+            this,
+            { airlines -> // when data reached update ui
 
-            airlineList.addAll(airlines)
-            airlineAdapter!!.swapData(airlineList)
-            airlineAdapter!!.notifyDataSetChanged()
-            // hide the progress bar
-            binding.progressBar.visibility = View.GONE
-        })
+                airlineList.addAll(airlines)
+                airlineAdapter!!.swapData(airlineList)
+                airlineAdapter!!.notifyDataSetChanged()
+                // hide the progress bar
+                binding.progressBar.visibility = View.GONE
+            })
         ////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////
         airlineList = ArrayList()
@@ -53,7 +56,7 @@ class AirlineActivity : AppCompatActivity() {
         ///////////////////////////////////////////////////////////////////
         binding.floatingActionButtonAddAirline.setOnClickListener { //  Toast.makeText(mContext,"you clicked me ",Toast.LENGTH_SHORT).show();
             if (airLineButtonSheet == null) {
-                airLineButtonSheet = AddAirLineButtonSheet()
+                airLineButtonSheet = AddAirLineButtonSheet(this)
                 //airLineButtonSheet.setCancelable(false);
             }
             airLineButtonSheet!!.show(supportFragmentManager, "AddAirLineButtonSheet")
@@ -76,5 +79,10 @@ class AirlineActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         airlineAdapter!!.setCanStart(true)
+    }
+
+    override fun onAddAirlineClicked(airline: Airline?) {
+        airlineList.add(0, airline!!)
+        airlineAdapter!!.notifyItemInserted(0)
     }
 }
