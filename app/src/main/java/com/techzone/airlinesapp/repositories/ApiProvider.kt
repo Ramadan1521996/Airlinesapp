@@ -1,7 +1,9 @@
-package com.techzone.airlinesapp.api
+package com.techzone.airlinesapp.repositories
 
 import android.annotation.SuppressLint
 import androidx.lifecycle.MutableLiveData
+import com.techzone.airlinesapp.api.BackendApisInterface
+import com.techzone.airlinesapp.api.RetrofitFactory
 import com.techzone.airlinesapp.models.Airline
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers

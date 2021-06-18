@@ -14,14 +14,14 @@ class RetrofitFactory {
         fun  getRetrofitInstance(): Retrofit {
                 val logging = HttpLoggingInterceptor()
                 logging.setLevel(HttpLoggingInterceptor.Level.BODY)
-                val client: OkHttpClient = OkHttpClient.Builder()
-                        .addInterceptor(logging)
-                        .build()
+//                val client: OkHttpClient = OkHttpClient.Builder()
+//                        .addInterceptor(logging)
+//                        .build()
                var retrofit = Retrofit.Builder()
                         .baseUrl(BASE_URL)
                         .addConverterFactory(GsonConverterFactory.create())
                         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                        .client(client)
+                       // .client(client)
                         .build()
             return retrofit
         }

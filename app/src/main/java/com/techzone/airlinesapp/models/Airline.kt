@@ -1,9 +1,15 @@
 package com.techzone.airlinesapp.models
 
+import androidx.annotation.NonNull
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.io.Serializable
 
+@Entity(tableName = "airline_table")
 class Airline :Serializable {
-    private var id: String? = null
+    @PrimaryKey
+    @NonNull
+    private var id: String =""
     private var name: String? = null
     private var country: String? = null
     private var logo: String? = null
@@ -25,11 +31,11 @@ class Airline :Serializable {
         this.established = established
     }
 
-    fun getId(): String? {
+    fun getId(): String {
         return id
     }
 
-    fun setId(id: String?) {
+    fun setId(id: String) {
         this.id = id
     }
 
