@@ -3,7 +3,6 @@ package com.techzone.airlinesapp.adapters
 import android.content.Context
 import android.content.Intent
 import android.text.Html
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,15 +12,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.techzone.airlinesapp.R
 import com.techzone.airlinesapp.models.Airline
 import com.techzone.airlinesapp.ui.screens.AirlineDetailsActivity
+import com.techzone.airlinesapp.util.MyMatcher
 import java.util.*
 import java.util.regex.Pattern
 
-class AirlineAdapter(private var airlines: MutableList<Airline>?,
-                     private var context: Context?) : RecyclerView.Adapter<AirlineAdapter.MyViewHolder>() {
+class AirlineAdapter(
+    private var airlines: MutableList<Airline>?,
+    private var context: Context?,
+    private var matcher: MyMatcher?
+) : RecyclerView.Adapter<AirlineAdapter.MyViewHolder>() {
     private val itemsCopy: MutableList<Airline> = ArrayList<Airline>()
     private var searchText = ""
     private var canStart = true
-
     init {
         itemsCopy.addAll(this.airlines!!)
     }
@@ -29,7 +31,9 @@ class AirlineAdapter(private var airlines: MutableList<Airline>?,
     fun setCanStart(can: Boolean) {
         canStart = can
     }
-
+    fun changeMatcher(matcher: MyMatcher?) {
+        this.matcher = matcher
+    }
     fun swapData(airlines: List<Airline?>?) {
         //  this.airlines=airlines;
         itemsCopy.clear()
@@ -65,8 +69,10 @@ class AirlineAdapter(private var airlines: MutableList<Airline>?,
             data.getName()?.let { name->
                 val currant: String = name
                 val replaceString = "(?i)" + Pattern.quote(searchText)
-                val htmlText = currant.replace(replaceString.toRegex(),
-                        "<font color='#8BC34A'>$searchText</font>")
+                val htmlText = currant.replace(
+                    replaceString.toRegex(),
+                    "<font color='#8BC34A'>$searchText</font>"
+                )
                 holder.airlineName.text = Html.fromHtml(htmlText)
             }
 
@@ -87,7 +93,7 @@ class AirlineAdapter(private var airlines: MutableList<Airline>?,
             text = text.toLowerCase()
             searchText = text
             for (item in itemsCopy) {
-                if (item.getName()!!.toLowerCase().contains(text)) {
+                if (matcher!!.matchAirLine(item, text)) {
                     airlines!!.add(item)
                 }
             }

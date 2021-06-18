@@ -13,6 +13,7 @@ import com.techzone.airlinesapp.databinding.ActivityAirlineBinding
 import com.techzone.airlinesapp.iterfaces.AddAirlineInterface
 import com.techzone.airlinesapp.models.Airline
 import com.techzone.airlinesapp.ui.views.AddAirLineButtonSheet
+import com.techzone.airlinesapp.util.MatchAirlineByName
 import com.techzone.airlinesapp.viewModels.AirlineViewModel
 import java.util.*
 
@@ -48,7 +49,8 @@ class AirlineActivity : AppCompatActivity() ,AddAirlineInterface{
         ////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////
         airlineList = ArrayList()
-        airlineAdapter = AirlineAdapter(airlineList, mContext)
+        val matchAirlineByName = MatchAirlineByName()
+        airlineAdapter = AirlineAdapter(airlineList, mContext,matchAirlineByName)
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         binding.airlineRecyclerview.layoutManager = mLayoutManager
         binding.airlineRecyclerview.adapter = airlineAdapter
