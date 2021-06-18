@@ -6,6 +6,6 @@ import java.util.*
 class MatchAirlineByName :MyMatcher(){
 
     override fun matchAirLine(airline: Airline?, name: String?): Boolean {
-        return airline!!.getName()!!.toLowerCase(Locale.ROOT).contains(name!!)
+        return airline!!.getName()!!.toLowerCase(Locale.ROOT).contains(name!!.toLowerCase(Locale.ROOT))
     }
 }
